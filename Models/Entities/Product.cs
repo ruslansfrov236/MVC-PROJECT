@@ -1,11 +1,15 @@
-﻿using Task_15.Models.Customers;
+﻿using System.ComponentModel.DataAnnotations;
+using Task_15.Models.Customers;
 
 namespace Task_15.Models.Entities
 {
     public class Product:BaseEntity
     {
-        public string FilePath { get; set; } 
-        public string Title { get; set; } 
-        public string Text { get; set; }
+        [Required(ErrorMessage = "zorunlu alan")]
+        public string? FilePath { get; set; }
+        [Required(ErrorMessage = "zorunlu alan")]
+        public string? Title { get; set; }
+        [Required(ErrorMessage = "zorunlu alan")]
+        public string? Text { get; set; }
     }
 }

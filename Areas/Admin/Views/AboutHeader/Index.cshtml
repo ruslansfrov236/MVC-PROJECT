@@ -1,0 +1,48 @@
+﻿@model List<AboutHeader>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-body" style="display:flex;  align-items:center; justify-content:space-between; flex-direction:column ">
+            <h5 class="card-title">About Table</h5>
+
+            <a href="/admin/aboutheader/create" class="btn btn-blue">Create</a>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th scope="col"> Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Create Date </th>
+                            <th scope="col">Update Date </th>
+                            <th scope="col">Update </th>
+                            <th scope="col">Delete </th>
+                            <th scope="col">Details </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var about in @Model)
+                        {
+                            <tr>
+                                <td>@about.Id.ToString().Substring(0, 3)..</td>
+                                <td>@about.Title</td>
+                                <td>@about.Description.Substring(0, 5)...</td>
+                                <td>@about.CreatedDate</td>
+                                <td>@about.UpdatedDate</td>
+                                <td> <a href="/admin/aboutheader/update/@about.Id">Update</a></td>
+
+                                <td>
+                                    <form asp-controller="AboutHeader" asp-action="DeleteAbout" asp-area="admin" asp-route-id="@about.Id">
+                                        <a href="/admin/aboutheader/delete/@about.Id">Delete</a>
+                                    </form>
+                                </td>
+                                <td> <a href="/admin/aboutheader/details/@about.Id">Details</a></td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

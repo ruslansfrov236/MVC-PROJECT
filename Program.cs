@@ -29,6 +29,169 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/pricing/delete/{id}",
+    defaults: new { controller = "Pricing", action = "Delete" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/pricing/update/{id}",
+    defaults: new { controller = "Pricing", action = "Update" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/pricing/create",
+    defaults: new { controller = "Pricing", action = "Create" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/pricing",
+    defaults: new { controller = "Pricing", action = "Index" });
+//contact info
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/contactinfo/delete/{id}",
+    defaults: new { controller = "Contact", action = "DeleteContact" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/contactinfo/update/{id}",
+    defaults: new { controller = "Contact", action = "UpdateContact" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/contactinfo/create",
+    defaults: new { controller = "Contact", action = "CreateContact" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/contactinfo",
+    defaults: new { controller = "Contact", action = "Index" });
+//contact
+
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/contact/delete/{id}",
+    defaults: new { controller = "Contact", action = "DeleteContact" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/contact/update/{id}",
+    defaults: new { controller = "Contact", action = "UpdateContact" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/contact/create",
+    defaults: new { controller = "Contact", action = "CreateContact" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/contact",
+    defaults: new { controller = "Contact", action = "Index" });
+
+//about header
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/aboutheader/details/{id}",
+    defaults: new { controller = "AboutHeader", action = "Details" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/aboutheader/delete/{id}",
+    defaults: new { controller = "AboutHeader", action = "DeleteAboutHeader" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/aboutheader/update/{id}",
+    defaults: new { controller = "AboutHeader", action = "UpdateAboutHeader" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/aboutheader/create",
+    defaults: new { controller = "AboutHeader", action = "CreateAboutHeader" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/aboutheader",
+    defaults: new { controller = "AboutHeader", action = "Index" });
+//about 
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/about/details/{id}",
+    defaults: new { controller = "About", action = "Details" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/about/delete/{id}",
+    defaults: new { controller = "About", action = "DeleteAbout" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/about/update/{id}",
+    defaults: new { controller = "About", action = "UpdateAbout" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/about/create",
+    defaults: new { controller = "About", action = "CreateAbout" });
+app.MapAreaControllerRoute(
+     name: "areas",
+    areaName: "admin",
+    pattern: "admin/about",
+    defaults: new { controller = "About", action = "Index" });
+//product
+app.MapAreaControllerRoute(
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/product/details/{id}",
+    defaults: new { controller = "Product", action = "Details" }
+);
+
+app.MapAreaControllerRoute(
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/product/create",
+    defaults: new { controller = "Product", action = "CreateProduct" }
+);
+app.MapAreaControllerRoute(
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/product/delete/{id}",
+    defaults: new { controller = "Product", action = "DeleteProduct" }
+);
+app.MapAreaControllerRoute(
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/product/update/{id}",
+    defaults: new { controller = "Product", action = "UpdateProduct" }
+);
+
+app.MapAreaControllerRoute(
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin/product",
+    defaults: new { controller = "Product", action = "Index" }
+);
+//admin
+app.MapAreaControllerRoute(
+    name: "areas",
+    areaName: "admin",
+    pattern: "admin",
+    defaults: new { controller = "Dashboard", action = "Index" }
+);
+//ui 
+app.MapControllerRoute(
+       name: "pricing",
+    pattern: "pricing",
+    defaults: new { controller = "Pricing", Action = "Index" }
+
+    );
 app.MapControllerRoute(
     name: "contact",
     pattern: "contact",

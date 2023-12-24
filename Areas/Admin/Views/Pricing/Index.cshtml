@@ -1,0 +1,65 @@
+﻿@model List<Pricing>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-body" style="display:flex;  align-items:center; justify-content:space-between; flex-direction:column ">
+            <h5 class="card-title">Pricing Table</h5>
+
+            <a href="/admin/pricing/create" class="btn btn-blue">Create</a>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th scope="col"> Title</th>
+                            <th scope="col"> Total Memory</th>
+                            <th scope="col">User</th>
+                            <th scope="col">Create Date </th>
+                            <th scope="col">Update Date </th>
+                            <th scope="col">Update </th>
+                            <th scope="col">Delete </th>
+                            <th scope="col">Details </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            if (Model.Count == null)
+                            {
+                                
+                                <tr>
+                                <td>Not Found</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                foreach (var pricing in @Model)
+                                {
+                                    <tr>
+                                        <td>@pricing.Id.ToString().Substring(0, 3)..</td>
+                                        <td>@pricing.Title</td>
+                                        <td>@pricing.TotalMemory</td>
+                                        <td>@pricing.PricingUser</td>
+
+                                        <td>@pricing.CreatedDate</td>
+                                        <td>@pricing.UpdatedDate</td>
+                                        <td> <a href="/admin \/update/@pricing.Id">Update</a></td>
+
+                                        <td>
+                                            <form asp-controller="Pricing" asp-action="Delete" asp-area="admin" asp-route-id="@pricing.Id">
+                                                <a href="/admin/pricing/delete/@pricing.Id">Delete</a>
+                                            </form>
+                                        </td>
+                                        <td> <a href="/admin/pricing/details/@pricing.Id">Details</a></td>
+                                    </tr>
+
+                                }
+                            }
+
+                        }
+                     
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

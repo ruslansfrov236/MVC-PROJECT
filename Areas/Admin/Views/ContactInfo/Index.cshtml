@@ -1,0 +1,50 @@
+﻿@model List<ContactInfo>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-body" style="display:flex;  align-items:center; justify-content:space-between; flex-direction:column ">
+            <h5 class="card-title">About Table</h5>
+
+            <a href="/admin/contactinfo/create" class="btn btn-blue">Create</a>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th scope="col"> Name</th>
+                            <th scope="col">Title Work</th>
+                            <th scope="col">Telephone</th>
+                            <th scope="col">Create Date </th>
+                            <th scope="col">Update Date </th>
+                            <th scope="col">Update </th>
+                            <th scope="col">Delete </th>
+                            <th scope="col">Details </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var contactInfo in @Model)
+                        {
+                            <tr>
+                                <td>@contactInfo.Id.ToString().Substring(0, 3)..</td>
+                                <td>@contactInfo.Title</td>
+                                <td>@contactInfo.TitleText</td>
+                                <td>@contactInfo.Description</td>
+                                <td>@contactInfo.CreatedDate</td>
+                                <td>@contactInfo.UpdatedDate</td>
+                                <td> <a href="/admin/contactinfo/update/@contactInfo.Id">Update</a></td>
+
+                                <td>
+                                    <form asp-controller="ContactInfo" asp-action="DeleteContact" asp-area="admin" asp-route-id="@contactInfo.Id">
+                                        <a href="/admin/contactinfo/delete/@contactInfo.Id">Delete</a>
+                                    </form>
+                                </td>
+                                <td> <a href="/admin/contactinfo/details/@contactInfo.Id">Details</a></td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

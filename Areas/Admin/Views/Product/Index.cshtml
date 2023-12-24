@@ -1,0 +1,48 @@
+﻿@model List<Product>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-body" style="display:flex;  align-items:center; justify-content:space-between; flex-direction:column ">
+            <h5 class="card-title">Product Table</h5>
+
+            <a href="/admin/product/create" class="btn btn-blue">Create</a>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>№</th>
+                            <th scope="col"> Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Create Date </th>
+                            <th scope="col">Update Date </th>
+                            <th scope="col">Update </th>
+                            <th scope="col">Delete </th>
+                            <th scope="col">Details </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var product in @Model)
+                        {
+                            <tr>
+                                <td>@product.Id.ToString().Substring(0, 3)..</td>
+                                <td>@product.Title</td>
+                                <td>@product.Text</td>
+                                <td>@product.CreatedDate</td>
+                                <td>@product.UpdatedDate</td>
+                                <td> <a href="/admin/product/update/@product.Id">Update</a></td>
+
+                                <td>
+                                    <form asp-controller="Product" asp-action="DeleteProduct" asp-area="admin" asp-route-id="@product.Id">
+                                        <a href="/admin/product/delete/@product.Id">Delete</a>
+                                    </form>
+                                </td>
+                                <td> <a href="/admin/product/details/@product.Id">Details</a></td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿@using Task_15.Areas.Admin.Dto.Contact_Dto
+
+@model CreateContact_Dto
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">Create Contact</div>
+            <hr>
+            <form asp-controller="Contact" asp-action="CreateContact" asp-area="Admin" method="post">
+                <div class="form-group">
+                    <label asp-for="@Model.FullName"></label>
+                    <input asp-for="@Model.FullName" class="form-control" id="input-1" placeholder="Enter Your Title">
+                    <span asp-validation-for="@Model.FullName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.TitleWork"></label>
+                    <input asp-for="@Model.TitleWork" class="form-control" id="input-2" placeholder="Enter Your File">
+                    <span asp-validation-for="@Model.TitleWork"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Telephone"></label>
+                    <input asp-for="@Model.Telephone" class="form-control" id="input-2" placeholder="Enter Your File">
+                    <span asp-validation-for="@Model.Telephone"></span>
+                </div>
+               
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
