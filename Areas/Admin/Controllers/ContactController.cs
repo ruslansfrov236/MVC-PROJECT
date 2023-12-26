@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Task_15.Areas.Admin.Dto.About_Dto;
-using Task_15.Areas.Admin.Dto.Contact_Dto;
+using Task_15.Models.Dto.About_Dto;
 using Task_15.Models.Context;
+using Task_15.Models.Dto.Contact_Dto;
 using Task_15.Models.Entities;
 
 namespace Task_15.Areas.Admin.Controllers

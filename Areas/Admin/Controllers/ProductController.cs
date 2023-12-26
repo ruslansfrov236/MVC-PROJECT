@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Task_15.Areas.Admin.Data.Product_Dto;
 using Task_15.Models.Context;
+using Task_15.Models.Dto.Product_Dto;
 using Task_15.Models.Entities;
 
 
@@ -14,7 +14,7 @@ namespace Task_15.Areas.Admin.Controllers
 
         readonly private Task_15DbContext _context;
 
-   
+    
 
         public ProductController(Task_15DbContext context)
         {
@@ -83,10 +83,10 @@ namespace Task_15.Areas.Admin.Controllers
             if (product== null) return NotFound();
             if (!ModelState.IsValid) return View(model);
           
-            var isAny = await _context.Products.AnyAsync(i => i.FilePath.ToLower().Trim() == model.FilePath.ToLower().Trim() && i.Title.ToLower().Trim() == model.Title.ToLower().Trim() && i.Id != Guid.Parse(model.Id) && i.Id!=Guid.Parse(model.Id));
+            var isAny = await _context.Products.AnyAsync(i=> i.Title.ToLower().Trim() == model.Title.ToLower().Trim() && i.Id != Guid.Parse(model.Id) && i.Id!=Guid.Parse(model.Id));
             if (isAny)
             {
-                ModelState.AddModelError("FilePath", "Daxil olan  melumat tekrarlanir");
+            
                 ModelState.AddModelError("Title", "Daxil olan  melumat tekrarlanir");
                 ModelState.AddModelError("Text", "Daxil olan  melumat tekrarlanir");
                 return View(model);

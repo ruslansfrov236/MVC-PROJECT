@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Task_15.Areas.Admin.Dto.Contact_Dto;
-using Task_15.Areas.Admin.Dto.ContactInfo_Dto;
+using Task_15.Models.Dto.Contact_Dto;
 using Task_15.Models.Context;
+using Task_15.Models.Dto.ContactInfo_Dto;
 using Task_15.Models.Entities;
 
 namespace Task_15.Areas.Admin.Controllers
@@ -71,27 +71,42 @@ namespace Task_15.Areas.Admin.Controllers
         }
         [HttpPost]
 
-        public async Task<IActionResult> UpdateContact( UpdateContactInfo_Dto model)
+        [HttpPost]
+        public async Task<IActionResult> UpdateContact(UpdateContactInfo_Dto model)
         {
-            if (!ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
 
-            bool isAbout = await _context.ContactsInfo.AnyAsync(ab =>
+            
+            ContactInfo existingContact = await _context.ContactsInfo.FindAsync(Guid.Parse(model.Id));
+            if (existingContact is null)
+            {
+                return NotFound();
+            }
+
+            
+            bool isTitleDuplicate = await _context.ContactsInfo.AnyAsync(ab =>
                 ab.Title.ToLower().Trim() == model.Title.ToLower().Trim() && ab.Id != Guid.Parse(model.Id)
             );
 
-            if (isAbout)
+            if (isTitleDuplicate)
             {
-                ModelState.AddModelError("FullName", "Daxil olan  melumat tekrarlanir");
-
+                ModelState.AddModelError("Title", "The entered title is already in use");
+                return View(model);
             }
-            ContactInfo contactInfo = new ContactInfo();
-            contactInfo.Title = model.Title;
-            contactInfo.TitleText = model.TitleText;
-            contactInfo.Description = model.Description;
 
+            existingContact.Title = model.Title;
+            existingContact.TitleText = model.TitleText;
+            existingContact.Description = model.Description;
+
+          
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index), "ContactInfo");
         }
+
 
 
         [HttpGet]

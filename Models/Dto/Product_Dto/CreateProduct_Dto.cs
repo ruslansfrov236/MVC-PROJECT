@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Task_15.Areas.Admin.Data.Product_Dto
+namespace Task_15.Models.Dto.Product_Dto
 {
     public class CreateProduct_Dto
     {

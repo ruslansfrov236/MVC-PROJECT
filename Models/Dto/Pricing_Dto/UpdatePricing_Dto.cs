@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Task_15.Areas.Admin.Dto.Work_Dto
+namespace Task_15.Models.Dto.Pricing_Dto
 {
-    public class CreatePricing_Dto
+    public class UpdatePricing_Dto
     {
+        public string Id { get; set; }
         [Required(ErrorMessage = "zorunlu alan ")]
         public string? Title { get; set; }
         [Required(ErrorMessage = "zorunlu alan ")]

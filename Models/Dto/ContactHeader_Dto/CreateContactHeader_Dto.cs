@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Task_15.Areas.Admin.Dto.ContactHeader_Dto
+namespace Task_15.Models.Dto.ContactHeader_Dto
 {
     public class CreateContactHeader_Dto
     {
@@ -13,7 +13,7 @@ namespace Task_15.Areas.Admin.Dto.ContactHeader_Dto
         public string? Description { get; set; }
         [Required(ErrorMessage = "zorunlu alan ")]
         public string? Link { get; set; }
-     
+
         public string? FilePath { get; set; }
 
         [NotMapped]
