@@ -18,11 +18,12 @@ namespace Task_15.Controllers
         {
             var contacts = await _task_15DbContext.Contacts.ToListAsync();
             var contactInfo = await _task_15DbContext.ContactsInfo.FirstOrDefaultAsync();
-
+            var contactHeader= await _task_15DbContext.ContactHeader.FirstOrDefaultAsync();
             ContactIndexViewModels models = new ContactIndexViewModels()
             {
                 Contacts= contacts,
-                ContactInfo=contactInfo
+                ContactInfo=contactInfo,
+                ContactHeader=contactHeader
             };
 
             return View(models);

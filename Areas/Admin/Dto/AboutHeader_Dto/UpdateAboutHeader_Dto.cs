@@ -1,12 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Task_15.Areas.Admin.Dto.AboutHeader_Dto
 {
     public class UpdateAboutHeader_Dto
     {
         public string? id { get; set; }
-        [Required(ErrorMessage = "zorunlu alan ")]
+    
         public string? FilePath { get; set; }
+        [NotMapped]
+        public IFormFile? File { get; set; }
         [Required(ErrorMessage = "zorunlu alan ")]
         public string? Title { get; set; }
         [Required(ErrorMessage = "zorunlu alan ")]

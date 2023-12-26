@@ -1,0 +1,44 @@
+﻿@using Task_15.Areas.Admin.Dto.ContactHeader_Dto
+
+
+@model CreateContactHeader_Dto
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">Create Contact</div>
+            <hr>
+            <form asp-controller="ContactHeader" asp-action="Create" asp-area="Admin" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="@Model.Title"></label>
+                    <input asp-for="@Model.Title" class="form-control" id="input-1" placeholder="Enter Your Title">
+                    <span asp-validation-for="@Model.Title"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Content"></label>
+                    <input asp-for="@Model.Content" class="form-control" id="input-2" placeholder="Enter Your File">
+                    <span asp-validation-for="@Model.Content"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Description"></label>
+                    <input asp-for="@Model.Description" class="form-control" id="input-2" placeholder="Enter Your File">
+                    <span asp-validation-for="@Model.Description"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Link"></label>
+                    <input asp-for="@Model.Link" class="form-control" id="input-2" placeholder="Enter Your File">
+                    <span asp-validation-for="@Model.Link"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.File"></label>
+                    <input asp-for="@Model.File" class="form-control" id="input-2" placeholder="Enter Your File">
+                    <span asp-validation-for="@Model.File"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

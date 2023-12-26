@@ -1,4 +1,5 @@
 ﻿
+using Task_15.Models.Entities;
 using C=Task_15.Models.Entities;
 namespace Task_15.ViewsModels.Contact
 {
@@ -6,7 +7,9 @@ namespace Task_15.ViewsModels.Contact
     {
         public List<C::Contact> Contacts = new List<C::Contact>();
 
-        public C::ContactInfo ContactInfo;
+        public ContactInfo ContactInfo;
+
+        public ContactHeader ContactHeader;
 
     }
 }

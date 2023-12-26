@@ -18,6 +18,8 @@ namespace Task_15.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Index()
         {
+
+
             var about = await _context.Abouts.Select(ab => new About
             {
                 Id = ab.Id,
@@ -26,6 +28,7 @@ namespace Task_15.Areas.Admin.Controllers
                 FilePath = ab.FilePath,
                 CreatedDate = ab.CreatedDate,
                 UpdatedDate = ab.UpdatedDate
+
 
 
             }).ToListAsync();
@@ -81,13 +84,13 @@ namespace Task_15.Areas.Admin.Controllers
                 ModelState.AddModelError("Title", "Daxil olan  melumat tekrarlanir");
                 ModelState.AddModelError("Description", "Daxil olan  melumat tekrarlanir");
             }
-            About about = new About();  
+            About about = new About();
 
-            about.Title= model.Title;
-            about.Description= model.Description;
-            about.Title= about.Title;
-           
-            await _context .SaveChangesAsync(); 
+            about.Title = model.Title;
+            about.Description = model.Description;
+            about.Title = about.Title;
+
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index), "About");
         }
 
@@ -106,31 +109,56 @@ namespace Task_15.Areas.Admin.Controllers
                 return View(model);
             }
 
+            if (model.File == null)
+            {
+                ModelState.AddModelError("File", "Melumat yoxdur");
+                return View(model);
+            }
+
+            if (!model.File.ContentType.StartsWith("image"))
+            {
+                ModelState.AddModelError("File", "Yalniz shekil fayllari qebul edilir");
+                return View(model);
+            }
+
+            if (model.File.Length / 1024 > 256)
+            {
+                ModelState.AddModelError("File", $"Hecmi {model.File.Length / 1024} kv uygun deyil");
+                return View(model);
+            }
+
+            var extension = Path.GetExtension(model.File.FileName);
+            var newName = $"{Guid.NewGuid()}{extension}";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\assets\\img", newName);
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await model.File.CopyToAsync(stream);
+            }
+
             About about = new About()
             {
                 Title = model.Title,
                 Description = model.Description,
-                FilePath = model.FilePath,
+                FilePath = newName,
             };
 
-         
-
-           await  _context.Abouts.AddAsync(about);
+            await _context.Abouts.AddAsync(about);
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index), "About");
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeleteAbout(string aboutId)
-        {
-            var about = await _context.Abouts.FirstOrDefaultAsync(c => c.Id == Guid.Parse(aboutId));
+    public async Task<IActionResult> DeleteAbout(string aboutId)
+    {
+        var about = await _context.Abouts.FirstOrDefaultAsync(c => c.Id == Guid.Parse(aboutId));
 
-            if (about is null) return BadRequest();
-            _context.Abouts.Remove(about);
-            await _context.SaveChangesAsync();
+        if (about is null) return BadRequest();
+        _context.Abouts.Remove(about);
+        await _context.SaveChangesAsync();
 
-            return RedirectToAction(nameof(Index), "About");
-        }
+        return RedirectToAction(nameof(Index), "About");
     }
+}
 }

@@ -46,6 +46,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWJvdXRcVXBkYXRlQWJvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/rusla/Documents/ProgramFile/AspNetCore/web/Task-15/Task-15/Areas/Admin/Views/ContactHeader/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29udGFjdEhlYWRlclxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rusla/Documents/ProgramFile/AspNetCore/web/Task-15/Task-15/Areas/Admin/Views/ContactHeader/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29udGFjdEhlYWRlclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rusla/Documents/ProgramFile/AspNetCore/web/Task-15/Task-15/Areas/Admin/Views/ContactHeader/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29udGFjdEhlYWRlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/rusla/Documents/ProgramFile/AspNetCore/web/Task-15/Task-15/Areas/Admin/Views/ContactHeader/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29udGFjdEhlYWRlclxVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/rusla/Documents/ProgramFile/AspNetCore/web/Task-15/Task-15/Areas/Admin/Views/ContactInfo/CreateContact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29udGFjdEluZm9cQ3JlYXRlQ29udGFjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

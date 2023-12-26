@@ -8,15 +8,18 @@
         <div class="container py-4">
             <div class="row align-items-center justify-content-between">
                 <div class="contact-header col-lg-4">
-                    <h1 class="h2 pb-3 text-primary">Contact</h1>
-                    <h3 class="h4 regular-400">Elit, sed do eiusmod tempor</h3>
-                    <p class="light-300">
-                        Vector illustration is from <a rel="nofollow" href="https://storyset.com/" target="_blank">StorySet</a>.
-                        Incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
-                    </p>
+                    <h1 class="h2 pb-3 text-primary">@Model.ContactHeader.Title</h1>
+                <h3 class="h4 regular-400">@Model.ContactHeader.Content</h3>
+                <p class="light-300">
+                 
+                        @Model.ContactHeader.Description.Substring(0, 27) <a rel="nofollow" href="@Model.ContactHeader.Link" target="_blank">@Model.ContactHeader.Description.Substring(27, Math.Min(10, Model.ContactHeader.Description.Length - 27))</a>
+                        @Model.ContactHeader.Description.Substring(37, Math.Max(0, Model.ContactHeader.Description.Length - 37))
+                   
+                </p>
+
                 </div>
                 <div class="contact-img col-lg-5 align-items-end col-md-4">
-                    <img src="./assets/img/banner-img-01.svg">
+                    <img src="./assets/img/@Model.ContactHeader.FilePath">
                 </div>
             </div>
         </div>
@@ -37,7 +40,7 @@
             @foreach( var contact in Model.Contacts)
             {
                 <div class="contact row mb-4">
-                    <div class="contact-icon col-lg-3 col-3">
+                    <div class="contact-icon col-lg-3 col-3">d
                         <div class="py-3 mb-2 text-center border rounded text-secondary">
                             <i class='display-6 bx bx-news'></i>
                         </div>

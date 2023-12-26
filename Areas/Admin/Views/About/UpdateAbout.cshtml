@@ -7,16 +7,19 @@
         <div class="card-body">
             <div class="card-title">Update About</div>
             <hr>
-            <form asp-controller="About" asp-action="UpdateAbout" asp-route-id="@Model.Id" asp-area="Admin" method="post">
+            <form asp-controller="About" asp-action="UpdateAbout" asp-route-id="@Model.Id" asp-area="Admin" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label asp-for="@Model.Title"></label>
                     <input asp-for="@Model.Title" class="form-control" id="input-1" placeholder="Enter Your Title">
                     <span asp-validation-for="@Model.Title"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="@Model.FilePath"></label>
-                    <input asp-for="@Model.FilePath" class="form-control" placeholder="Enter Your File">
-                    <span asp-validation-for="@Model.FilePath"></span>
+                    <label asp-for="@Model.File"></label>
+                    <div>
+                        <img style="width:100px; height:100px; object-fit:cover" src="~/assets/img/@Model.FilePath" alt="@Model.FilePath" />
+                    </div>
+                    <input asp-for="@Model.File" class="form-control" placeholder="Enter Your File">
+                    <span asp-validation-for="@Model.File"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="@Model.Description">Description</label>

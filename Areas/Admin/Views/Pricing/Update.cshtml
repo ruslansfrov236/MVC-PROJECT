@@ -7,7 +7,7 @@
         <div class="card-body">
             <div class="card-title">Create Contact</div>
             <hr>
-            <form asp-controller="Pricing" asp-action="Update" asp-route-id="@Model.Id" asp-area="Admin" method="post">
+            <form asp-controller="Pricing" asp-action="Update" asp-route-id="@Model.Id" asp-area="Admin" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label asp-for="@Model.Title"></label>
                     <input asp-for="@Model.Title" class="form-control" id="input-1" placeholder="Enter Your Title">

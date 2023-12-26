@@ -14,7 +14,7 @@ namespace Task_15.Areas.Admin.Controllers
 
         readonly private Task_15DbContext _context;
 
-        public object FilePath { get; private set; }
+   
 
         public ProductController(Task_15DbContext context)
         {
@@ -79,8 +79,10 @@ namespace Task_15.Areas.Admin.Controllers
 
             var product = await _context.Products.FindAsync(Guid.Parse(model.Id));
 
+            
             if (product== null) return NotFound();
             if (!ModelState.IsValid) return View(model);
+          
             var isAny = await _context.Products.AnyAsync(i => i.FilePath.ToLower().Trim() == model.FilePath.ToLower().Trim() && i.Title.ToLower().Trim() == model.Title.ToLower().Trim() && i.Id != Guid.Parse(model.Id) && i.Id!=Guid.Parse(model.Id));
             if (isAny)
             {

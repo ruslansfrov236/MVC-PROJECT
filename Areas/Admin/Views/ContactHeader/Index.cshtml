@@ -1,0 +1,52 @@
+﻿@model List<ContactHeader>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-body" style="display:flex;  align-items:center; justify-content:space-between; flex-direction:column ">
+            <h5 class="card-title">Model Table</h5>
+
+            <a href="/admin/contactheader/create" class="btn btn-blue">Create</a>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">№</th>
+                            <th scope="col"> Title</th>
+                            <th scope="col">Content</th>
+                            <th scope="col">File</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Create Date </th>
+                            <th scope="col">Update Date </th>
+                            <th scope="col">Update </th>
+                            <th scope="col">Delete </th>
+                            <th scope="col">Details </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                 @foreach(var data in Model)
+                        {
+                            <tr>
+                                <td>@data.Id.ToString().Substring(0,3)...</td>
+                                <td>@data.Title</td>
+                                <td>@data.Content</td>
+                                <td>@data.FilePath</td>
+                                <td>@data.Description</td>
+                                <td>@data.CreatedDate</td>
+                                <td>@data.UpdatedDate</td>
+                                <td> <a href="/admin/contactheader/update/@data.Id">Update</a></td>
+                                <td>
+                                    <form asp-controller="ContactHeader" asp-action="Delete" asp-area="admin" asp-route-id="@data.Id">
+                                        <a href="/admin/contactheader/delete/@data.Id">Delete</a>
+                                    </form>
+                                </td>
+                                <td> <a href="/admin/contactheader/details/@data.Id">Details</a></td>
+                            </tr>
+                        }
+
+                     
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -12,7 +12,7 @@ namespace Task_15.Models.Context
         public DbSet<AboutHeader>? AboutHeaders { get; set; }
         public DbSet<Pricing>? Pricing { get; set; }    
         public DbSet<Contact>? Contacts { get; set; }
-
+        public DbSet<ContactHeader>? ContactHeader { get; set; } 
         public DbSet <ContactInfo>? ContactsInfo { get; set; }
         public Task_15DbContext(DbContextOptions options) : base(options)
         {
